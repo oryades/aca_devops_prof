@@ -9,6 +9,9 @@ services:
       - '3000:80'
     depends_on:
       - wordpress_mysql
+    environment:
+      - WORDPRES_DB_PASSWORD=wordpress
+      - WORDPRES_DB_USER=wordpress
     volumes:
       - ./html:/var/www/html
   wordpress_mysql:
