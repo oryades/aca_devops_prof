@@ -9,6 +9,8 @@ services:
       - '3000:80'
     depends_on:
       - wordpress_mysql
+    volumes:
+      - ./html:/var/www/html
   wordpress_mysql:
     container_name: wordpress_mysql
     image: mysql
