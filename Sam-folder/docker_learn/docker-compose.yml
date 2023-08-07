@@ -10,10 +10,12 @@ services:
     depends_on:
       - wordpress_mysql
     environment:
-      - WORDPRES_DB_PASSWORD=wordpress
-      - WORDPRES_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_HOST=wordpress_mysql
     volumes:
-      - ./html:/var/www/html
+      - ./html/index.html:/var/www/html/index.html
   wordpress_mysql:
     container_name: wordpress_mysql
     image: mysql
