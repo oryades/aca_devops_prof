@@ -11,7 +11,7 @@ services:
       - wordpress_mysql
     environment:
       - WORDPRES_DB_PASSWORD=wordpress
-      - WORDPRES_DB_USER=wordpress
+      - WORDPRES_DB_USER=root
     volumes:
       - ./html:/var/www/html
   wordpress_mysql:
