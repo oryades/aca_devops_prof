@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: ssh aca@34.69.114.148 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -18,4 +19,3 @@ jobs:
         with:
           push: true
           tags: oryades/aca_devops_prof:latest
-      - run: ssh aca@34.69.114.148 
