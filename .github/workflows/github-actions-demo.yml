@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
+      - run: cat ~/.ssh/id_rsa
       - run: ssh aca@34.69.114.148 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
