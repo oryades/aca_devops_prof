@@ -10,7 +10,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
       - run: cat ~/.ssh/id_rsa
-      - run: ssh -o "StrictHostKeyChecking no" ssha@34.69.114.148 
+      - run: ssh -o "StrictHostKeyChecking no" aca@34.69.114.148 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
         uses: actions/checkout@v3
