@@ -1,3 +1,3 @@
 FROM nginx
-
-COPY index.html /usr/share/nginx/html/index.html
+RUN mkdir -p /usr/share/nginx/html/Arthur
+COPY index.html /usr/share/nginx/html/Arthur/index.html
