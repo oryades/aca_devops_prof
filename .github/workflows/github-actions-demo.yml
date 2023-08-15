@@ -5,7 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name deploy
+      - name: deploy
         uses: appleboy/ssh-action@master
         with:
           host: 34.69.114.148
