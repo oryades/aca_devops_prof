@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: mkdir -p ~/.ssh && echo "${{ vars.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
       - run: cat /home/runner/.ssh/id_rsa
-      - run: ssh -o StrictHostKeyChecking=no aca@34.69.114.148 'docker rm -fv website && docker pull oryades/aca_devops_prof && docker run -d -p 80:80 oryades/aca_devops_prof'
+      - run: ssh -vvv -o StrictHostKeyChecking=no aca@34.69.114.148 'docker rm -fv website && docker pull oryades/aca_devops_prof && docker run -d -p 80:80 oryades/aca_devops_prof'
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Log in to Docker Hub
