@@ -1,4 +1,3 @@
 FROM nginx
-
-
-COPY index.html /usr/share/nginx/html/index.html
+RUN mkdir -p /usr/share/nginx/html/emil
+COPY Garnik/index.html /usr/share/nginx/html/emil/index.html
