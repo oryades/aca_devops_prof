@@ -8,7 +8,7 @@ jobs:
       - run: mkdir -p ~/.ssh && echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
         shell: bash
         env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - run: cat ~/.ssh/id_rsa
       - run: ssh -o StrictHostKeyChecking=no aca@34.69.114.148 'docker rm -fv website && docker pull oryades/aca_devops_prof && docker run -d -p 80:80 oryades/aca_devops_prof'
       - name: Check out repository code
@@ -16,10 +16,11 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: oryades
+          username: ${{ vars.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: oryades/aca_devops_prof:latest
+          tags: ${{ vars.DOCKER_IMAGE_URL }}
+
