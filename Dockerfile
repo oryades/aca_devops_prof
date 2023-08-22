@@ -22,3 +22,6 @@ COPY test/index.html /usr/share/nginx/html/test/index.html
 
 RUN mkdir -p /usr/share/nginx/html/samig
 COPY samig/index.html /usr/share/nginx/html/samig/index.html
+
+RUN mkdir -p /usr/share/nginx/html/arthur
+COPY arthur/index.html /usr/share/nginx/html/arthur/index.html
