@@ -16,12 +16,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ vars.DOCKER_IMAGE_URL }}
-      - name: deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: 34.69.114.148
-          username: aca
-          key: ${{ vars.SSH_PRIVATE_KEY }}
-          port: 22
-          script: docker rm -fv website && docker pull ${{ vars.DOCKER_IMAGE_URL }} && docker run -d --name website -p 80:80 ${{ vars.DOCKER_IMAGE_URL }}
+
