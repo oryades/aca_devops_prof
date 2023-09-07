@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest update_cache=yes
+      become: yes
+
+    - name: copy the nginx config file and restart nginx
+      copy:
+        src: /home/ubuntu/homework2/default.conf
+        dest: /etc/nginx/sites-available/default
+      become: yes
+
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes
