@@ -1,0 +1,34 @@
+---
+- name: Instal Nginx
+  hosts: myvirtualmachines
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    ansible_become_password: admin
+
+  tasks:
+
+    - name: Install Nginx
+      apt:
+        name: nginx 
+      when: ansible_os_family == "Debian"
+
+    - name: Copy custom Nginx configuration
+      copy:
+        src: /home/curie/ansible/default
+        dest: /etc/nginx/sites-available/default
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
+
+
+
+
+
+
+
